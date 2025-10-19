@@ -1,5 +1,19 @@
 # Changelog
 
+
+## v0.3
+- Upgraded model to **RandomForestRegressor**
+- Tuned parameters: `n_estimators=300`, `max_depth=5`, `min_samples_split=5`
+- RMSE improved slightly from **53.78 → 53.72**
+- Demonstrates transition from linear → ensemble-based model while maintaining reproducibility
+
+| Version | RMSE | Δ (Improvement) |
+|----------|------|-----------------|
+| v0.1 | 53.85 | — |
+| v0.2 | 53.78 | ↓ 0.08 |
+| v0.3 | 53.72 | ↓ 0.06 |
+
+
 ## v0.2
 - Upgraded model from **LinearRegression** to **Ridge Regression (α=1.0)**.
 - Added 5-fold cross-validation for hyperparameter tuning.

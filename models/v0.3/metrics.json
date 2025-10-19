@@ -1,0 +1,8 @@
+{
+  "model_version": "v0.3",
+  "algorithm": "StandardScaler + RandomForestRegressor(n_estimators=300, max_depth=5, min_samples_split=5)",
+  "seed": 42,
+  "metrics": {
+    "rmse_holdout": 53.7187138229603
+  }
+}

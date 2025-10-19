@@ -12,6 +12,12 @@ train-v01:
 train-v02:
 	python training/train_v02.py
 
+train-v02:
+	python training/train_v02.py
+
+train-v03:
+	python training/train_v03.py
+
 api:
 	uvicorn src.app:app --port 8080
 
