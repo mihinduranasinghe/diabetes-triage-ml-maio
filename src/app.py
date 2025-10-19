@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from src.schema import PredictRequest, PredictResponse, HealthResponse
 from src.model_io import load_model
 
-MODEL_VERSION = "v0.1"
+MODEL_VERSION = "v0.2"
 model, meta = load_model(MODEL_VERSION)
 
 app = FastAPI(title="Diabetes Triage ML Service", version=MODEL_VERSION)

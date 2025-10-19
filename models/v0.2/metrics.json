@@ -1,0 +1,8 @@
+{
+  "model_version": "v0.2",
+  "algorithm": "StandardScaler + Ridge(alpha=1.0)",
+  "seed": 42,
+  "metrics": {
+    "rmse_holdout": 53.77745406534388
+  }
+}
