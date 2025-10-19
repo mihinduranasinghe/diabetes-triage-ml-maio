@@ -1,0 +1,8 @@
+{
+  "model_version": "v0.1",
+  "algorithm": "StandardScaler + LinearRegression",
+  "seed": 42,
+  "metrics": {
+    "rmse_holdout": 53.85344583676593
+  }
+}

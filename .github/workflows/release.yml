@@ -1,0 +1,60 @@
+name: Release
+
+on:
+    push:
+        tags:
+            - "v*"
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: write
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set version
+              id: v
+              run: echo "TAG=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+
+            - name: Docker login GHCR
+              run: echo "${{ github.token }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            - name: Build image
+              run: |
+                  docker build -t ghcr.io/${{ github.repository }}:${{ steps.v.outputs.TAG }} .
+
+            - name: Smoke test container
+              run: |
+                  docker run -d --rm -p 8080:8080 --name triage ghcr.io/${{ github.repository }}:${{ steps.v.outputs.TAG }}
+                  sleep 3
+                  curl -sf http://localhost:8080/health | tee health.json
+                  docker rm -f triage
+
+            - name: Push image
+              run: docker push ghcr.io/${{ github.repository }}:${{ steps.v.outputs.TAG }}
+
+            - name: Read metrics
+              id: metrics
+              run: |
+                  METRICS=$(cat models/${{ steps.v.outputs.TAG }}/metrics.json 2>/dev/null || cat models/v0.1/metrics.json)
+                  echo "TEXT<<EOF" >> $GITHUB_OUTPUT
+                  echo "$METRICS" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: ${{ steps.v.outputs.TAG }}
+                  name: ${{ steps.v.outputs.TAG }}
+                  body: |
+                      Release ${{ steps.v.outputs.TAG }}
+
+                      Metrics:
+                      ```
+                      ${{ steps.metrics.outputs.TEXT }}
+                      ```
+
+                      See CHANGELOG.md for iteration notes.

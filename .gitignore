@@ -1,0 +1,61 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ---- Virtual Environment ----
+.venv/
+venv/
+ENV/
+env/
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- OS Files ----
+.DS_Store
+Thumbs.db
+
+# ---- Logs and Outputs ----
+*.log
+logs/
+output/
+tmp/
+
+# ---- Test / Coverage ----
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.cache/
+
+# ---- Model Artifacts ----
+# Keep only versioned models 
+models/*.joblib
+models/*.pkl
+models/*.json
+!models/v0.1/
+!models/v0.2/
+
+# ---- Environment Variables ----
+.env
+.env.*
+*.env
+
+
+# ---- Docker / CI ----
+# Keep Dockerfile and workflows; ignore build caches
+*.tar
+*.bak
+*.tmp
