@@ -117,19 +117,19 @@ echo $GITHUB_TOKEN | docker login ghcr.io -u <your-github-username> --password-s
 ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.1
 
 # Run v1
-docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.1
+docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.1
 
 # Pull v2
 ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.2
 
 # Run v2
-docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.2
+docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.2
 
 # Pull v0.3
 docker pull ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.3
 
 # Run v0.3
-docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.3
+docker run --rm -p 8080:8080 ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.3
 
 # Access & Swagger UI :
 
