@@ -99,9 +99,9 @@ If you want to add a new ML version,
 ### 6. GitHub Container Registry (GHCR)
 #### Available images:
 ```bash
-ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.1
-ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.2
-ghcr.io/mihindu-ilangakoon/diabetes-triage-mlops:v0.3
+ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.1
+ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.2
+ghcr.io/mihindu-ilangakoon/diabetes-triage-ml-maio:v0.3
 ```
 
 ### 7. Pull and Run from GitHub Container Registry (GHCR)
